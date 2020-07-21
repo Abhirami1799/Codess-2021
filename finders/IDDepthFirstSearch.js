@@ -1,15 +1,3 @@
-/*
-To make sure the search terminates, we must add a cutoff at some depth. We can use the same code for this
-search as for breadth-first search, if we add a depth parameter to keep track of each node’s depth.
-For geometric pathfinding, we can add two enhancements. One would be to label each tile with the length
-of the cheapest path found to it yet; the algorithm would then never visit it again unless it had a
-cheaper path, or one just as cheap but searching to a greater depth.
-Iterative-deepening depth-first search : A technique that carries out a depth-first search with
-increasing depth: first one, then two, and so on until the goal is found. We can enhance this by starting
-with a depth equal to the straight-line distance from the start to the goal. This search is
-asymptotically optimal among brute force searches in both space and time.
-*/
-
 class IDDepthFirstSearch
 {
     constructor(options)
@@ -47,18 +35,19 @@ class IDDepthFirstSearch
 
         var DLS = function(start, graph, depthLimit)
         {
-            //var box = activeGrid.getBox(start.y, start.x);
-            //start.isVisited = true;
             var timediff = new Date().getTime() - startTime;
-            if(timediff > 4000){
+            if(timediff > 4000)
+            {
               maxDepth=0;
               alert("Sorry IDDFS is taking a lot of time 😢");
               return Infinity;
             }
+
             if(start === end)
             {
                 return true;
             }
+            
             else
             {
                 start.isVisited = true;
@@ -93,7 +82,7 @@ class IDDepthFirstSearch
 
                 if(!neighbor.isVisited)
                 {
-                    neighbor.setAsTraversed();//Animate.setTraversed(neighbor);
+                    neighbor.setAsTraversed();
                     neighbor.parent = start;
                     neighbor.dist = newDist;
 

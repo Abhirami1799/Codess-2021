@@ -1,6 +1,3 @@
-//var Path = require('./Path');
-//var DiagonalOptions = require('./DiagonalOptions');
-
 //for unweighted graphs
 
 class BiBreadthFirstSearch
@@ -62,7 +59,6 @@ class BiBreadthFirstSearch
             node = startOpenList.shift();
 
             node.closed = true;
-                //box = graph.getBox(node.y, node.x);
 
             neighbors = graph.getNeighbors(node.x, node.y, diagOption);
             for (var i = 0; i < neighbors.length; ++i)
@@ -87,7 +83,6 @@ class BiBreadthFirstSearch
                     neighbor.isVisited = true;
                     neighbor.visits = this.visits.start;
                     neighbor.parent = node;
-                    //if(neighbor.nodeType != states.BOX_TYPES.END_NODE)
                     neighbor.setAsTraversed();
                     startOpenList.push(neighbor);
                 }
@@ -96,7 +91,6 @@ class BiBreadthFirstSearch
             node = endOpenList.shift();
 
             node.closed = true;
-                //box = graph.getBox(node.y, node.x);
 
             neighbors = graph.getNeighbors(node.x, node.y, diagOption);
             for (var i = 0; i < neighbors.length; ++i)
@@ -122,7 +116,6 @@ class BiBreadthFirstSearch
                     neighbor.isVisited = true;
                     neighbor.visits = this.visits.end;
                     neighbor.parent = node;
-                    //if(neighbor.nodeType != states.BOX_TYPES.END_NODE)
                     neighbor.setAsTraversed();
                     endOpenList.push(neighbor);
                 }

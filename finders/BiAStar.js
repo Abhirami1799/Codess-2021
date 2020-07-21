@@ -85,19 +85,9 @@ class BiAStar
                 if(neighbor.visits === this.visits.end)
                 {
                     foundDest = true;
-                    //console.log("Visits of neighbor : "+neighbor.visits);
-                    //neighbor.parent = currentNode;
                     this.visitsReset(graph);
                     var p = new Path();
-                    
                     p.biTrace(currentNode, neighbor);
-                    /*var prevNode = graph.getNodeAt(p.path[0][0], p.path[0][1]), diag = 1;
-                    for(var i = 1; i < p.path.length; i++)
-                    {
-                        var box = graph.getNodeAt(p.path[i][0], p.path[i][1]);
-                        this.pathCost = this.pathCost + (diag = ((box.x != prevNode.x) && (box.y != prevNode.y)) ? Math.SQRT2 : 1) * (box.weight + prevNode.weight) / 2.0;
-                        prevNode = box;
-                    }*/
                     return [];
                 }
 
@@ -129,13 +119,9 @@ class BiAStar
         
                     if(!neighbor.isVisited)
                     {
-                        //var box = graph.getBox(neighbor.y, neighbor.x);
                         startOpenList.insert({f : fNew, coord : [neighbor.x, neighbor.y]});
                         neighbor.isVisited = true;
-                        //if(color === true) //color the node only when we want to show the search
-                        //{
-                            neighbor.setAsTraversed();//Animate.setTraversed(neighbor);
-                        //}
+                        neighbor.setAsTraversed();
                         neighbor.f = fNew;
                         neighbor.g = gNew;
                         neighbor.h = hNew;
@@ -159,18 +145,9 @@ class BiAStar
                 if(neighbor.visits === this.visits.start)
                 {
                     foundDest = true;
-                    //console.log("Visits of neighbor : "+neighbor.visits);
                     this.visitsReset(graph);
-                    //neighbor.parent = currentNode;
                     var p = new Path();
                     p.biTrace(currentNode, neighbor);
-                    /*var prevNode = graph.getNodeAt(p.path[0][0], p.path[0][1]), diag = 1;
-                    for(var i = 1; i < p.path.length; i++)
-                    {
-                        var box = graph.getNodeAt(p.path[i][0], p.path[i][1]);
-                        this.pathCost = this.pathCost + (diag = ((box.x != prevNode.x) && (box.y != prevNode.y)) ? Math.SQRT2 : 1) * (box.weight + prevNode.weight) / 2.0;
-                        prevNode = box;
-                    }*/
                     return [];
                 }
 
@@ -202,13 +179,9 @@ class BiAStar
         
                     if(!neighbor.isVisited)
                     {
-                        //var box = graph.getBox(neighbor.y, neighbor.x);
                         endOpenList.insert({f : fNew, coord : [neighbor.x, neighbor.y]});
                         neighbor.isVisited = true;
-                        //if(color === true) //color the node only when we want to show the search
-                        //{
-                            neighbor.setAsTraversed();//Animate.setTraversed(neighbor);
-                        //}
+                        neighbor.setAsTraversed();
                         neighbor.f = fNew;
                         neighbor.g = gNew;
                         neighbor.h = hNew;

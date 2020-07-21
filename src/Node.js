@@ -1,5 +1,7 @@
-class Node {
-  constructor(x, y, weight) {
+class Node
+{
+  constructor(x, y, weight)
+  {
     this.x = x;
 
     this.y = y;
@@ -11,13 +13,15 @@ class Node {
     this.parent = null;
   }
 
-  resetToDefault() {
+  resetToDefault()
+  {
     this.weight = 1;
     this.resetVisit();
   }
 
-  resetVisit() {
+  resetVisit()
+  {
     this.isVisited = false;
     this.parent = null;
   }
-}
+};
