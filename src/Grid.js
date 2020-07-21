@@ -1,4 +1,3 @@
-
 class Box extends Node
 {
   constructor(x, y, weight)
@@ -39,7 +38,6 @@ class Box extends Node
     if (this.nodeType == states.BOX_TYPES.START_NODE)
     {
       this.setAsClear();
-      //states.Context.Runner.resetGrid();
     }
   }
 
@@ -60,7 +58,6 @@ class Box extends Node
   {
     if (this.nodeType == states.BOX_TYPES.END_NODE) {
       this.setAsClear();
-      //states.Context.Runner.resetGrid();
     }
   }
 
@@ -121,48 +118,41 @@ class Box extends Node
 
   setAsTraversed()
   {
-    //if(this.nodeType != states.BOX_TYPES.START_NODE && this.nodeType != states.BOX_TYPES.END_NODE && this.nodeType!=states.BOX_TYPES.WEIGHT_NODE)
-    //{
-      if (this.nodeType == states.BOX_TYPES.BLOCK)
-      {
-        this.nodeType = states.BOX_TYPES.ERROR_NODE;
-        this.__path.fillColor = states.COLORS.BOX_TYPE_ERROR_NODE_COLOR;
-      }
+    if (this.nodeType == states.BOX_TYPES.BLOCK)
+    {
+      this.nodeType = states.BOX_TYPES.ERROR_NODE;
+      this.__path.fillColor = states.COLORS.BOX_TYPE_ERROR_NODE_COLOR;
+    }
 
-      else if(this.nodeType == states.BOX_TYPES.CLEAR)
-      {
-        this.path.tween(
-          {
-            fillColor: states.COLORS.BOX_TYPE_TRAVERSED_NODE_COLORS[0]
-          },
-          {
-            fillColor: states.COLORS.BOX_TYPE_TRAVERSED_NODE_COLORS[1]
-          },
-          200
-        );
-      }
-    //}
+    else if(this.nodeType == states.BOX_TYPES.CLEAR)
+    {
+      this.path.tween(
+        {
+          fillColor: states.COLORS.BOX_TYPE_TRAVERSED_NODE_COLORS[0]
+        },
+        {
+          fillColor: states.COLORS.BOX_TYPE_TRAVERSED_NODE_COLORS[1]
+        },
+        200
+      );
+    }
     this.isVisited = true;
   }
 
   setAsPath()
   {
-    //if(this.nodeType !== states.BOX_TYPES.START_NODE && this.nodeType !== states.BOX_TYPES.END_NODE)
-    //{
-      if (this.nodeType == states.BOX_TYPES.CLEAR || this.nodeType == states.BOX_TYPES.WEIGHT_NODE) {
-        //this.nodeType = states.BOX_TYPES.PATH_NODE;
-      //if (this.nodeType == states.BOX_TYPES.CLEAR) {
-        this.path.tween(
-          {
-            fillColor: states.COLORS.BOX_TYPE_PATH_NODE_COLORS[0]
-          },
-          {
-            fillColor: states.COLORS.BOX_TYPE_PATH_NODE_COLORS[1]
-          },
-          200
-        );
-      }
-    //}
+    if (this.nodeType == states.BOX_TYPES.CLEAR || this.nodeType == states.BOX_TYPES.WEIGHT_NODE)
+    {
+      this.path.tween(
+        {
+          fillColor: states.COLORS.BOX_TYPE_PATH_NODE_COLORS[0]
+        },
+        {
+          fillColor: states.COLORS.BOX_TYPE_PATH_NODE_COLORS[1]
+        },
+        200
+      );
+    }
   }
 
   resetTraversed()

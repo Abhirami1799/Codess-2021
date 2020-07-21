@@ -10,25 +10,16 @@ const states = Object.freeze({
   width: $("#graph-canvas").width(),
   height: $("#graph-canvas").height(),
   actionPanel: $(".action-panel"),
-  //stationsCheck: $(".stations-check"),
   algoSelection: $(".algo-selection"),
-  /*speedSelection: $(".speed-selection"),*/
-  /*randomWallGenerator: $(".random-wall-generator"),*/
   algoNameDisplay: $("#selected-algo-name"),
   speedNameDisplay: $("#selected-speed-name"),
   runnerDuration: $("#runner-duration"),
-  /*enableStations: $("#enable-stations"),*/
   currentPathSpeed: 6,
-  /*nextStepBtn: $(".next-step"),*/
-  /*admissibleValue: $("#admissible-value"),
-  admissibleValueDisplay: $("#admissibleValueDisplay"),*/
   WEIGHTS_VALUE: Object.freeze({
     weight1: 3,
     weight2: 5,
     weight3: 10,
-  
   }),
-
   DEFAULT_WEIGHT: 3,
   MAX_STATIONS: 6,
   MAX_END_NODE_COUNT: 3,
@@ -81,9 +72,6 @@ const states = Object.freeze({
     idDepthFirst: IDDepthFirstSearch,
     bestFirst: AStar,
     dijkstra: AStar,
-    //bellman: BellmanFord,
-    /*jps: JumpPointSearch,
-    orthoJps: JumpPointSearch,*/
     travelSales: TravelingSalesman,
     multiStop: MultipleStops,
     biBFS: BiBreadthFirstSearch,
@@ -94,10 +82,7 @@ const states = Object.freeze({
   Context: {
     ActiveGrid: null,
     Runner:null,
-    //searchQueue: null,
-    //pathQueue: null,
     FREE: true, /*keeps track of whether the runner is free or running*/
-    //AdmissibleValue: 1
     weight:null,
   }
 });

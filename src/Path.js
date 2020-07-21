@@ -3,7 +3,6 @@ class Path
     constructor()
     {
         this.path = [];
-        //this.lineLength = 0;
         this.lineCount = 0;
     }
     
@@ -21,13 +20,10 @@ class Path
         }
     
         this.path = path.reverse();
-
-        console.log("PATH: "+this.path);
     }
 
     mapPath(i, prevPoint)
     {
-        console.log("aaaa");
         var box = states.Context.ActiveGrid.getBox(this.path[i][1], this.path[i][0]);
         box.setAsPath();
         states.Context.Runner.lines.drawLine(prevPoint[0], prevPoint[1], box.x, box.y);
@@ -44,29 +40,14 @@ class Path
         
         this.traceFromEnd(node1);
         path1 = this.path;
-        //console.log(this.path);
         prevPoint = [path1[0][0], path1[0][1]];
-        console.log(prevPoint);
-        //this.path.length > 2 ? this.mapPath(1, prevPoint) : null;
-        //node1.setAsPath();
-        
-        //states.Context.Runner.lines.drawLine(node1.x, node1.y, node2.x, node2.y);
-        
-        //prevPoint = [node2.x, node2.y];
-        //console.log(prevPoint);
         this.traceFromEnd(node2);
         this.path = this.path.reverse();
         this.path = path1.concat(this.path);
         l = this.path.length;
-        //console.log(this.path);
         l > 2 ? this.mapPath(1, prevPoint) : null;
         states.Context.Runner.lines.drawLine(this.path[l - 2][0], this.path[l - 2][1],
             this.path[l - 1][0], this.path[l - 1][1]);
-        
-        //console.log("path1..."+path1+"path2..."+path2);
-        //this.path = path1.concat(path2.reverse());
-        //console.log("PATH..."+this.path);
-        //return (this.path);
     }
 
     drawLine(x1, y1, x2, y2)
@@ -109,18 +90,15 @@ class Path
             return;
         }
 
-        //this.lineGroup.removeChildren();
         var children = project.activeLayer.children,
             l = children.length;
 
         // Iterate through the items contained within the array:
         for (var i = 1; i <= this.lineCount; i++)
         {
-            console.log("44444444444");
             var child = children[l - i];
             child.remove();
         }
         this.lineCount = 0;
     }
 };
-//module.exports = Path;

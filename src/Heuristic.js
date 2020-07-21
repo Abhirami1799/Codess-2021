@@ -20,5 +20,3 @@ const Heuristic = {
     return Math.max(dx, dy) + (root2 - 1) * Math.min(dx, dy);
   }
 };
-
-//module.exports = Heuristic;

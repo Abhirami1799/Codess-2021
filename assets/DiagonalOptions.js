@@ -5,5 +5,3 @@ var DiagonalOptions =
     oneNeighborBlocked : 3,
     Never : 4
 };
-
-//module.exports = DiagonalOptions;

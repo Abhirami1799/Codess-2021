@@ -9,17 +9,15 @@
          />
       <meta
          name="description"
-         content="Shortest Path Finder "
+         content="Shortest Path Finder"
          />
       <meta
          name="keywords"
          content="Path, Visualizer, Pathfinding, PathFinder, Algorithm, graph, GraphAlgorithm,"
          />
       <meta name="author" content="Ugly Ducklings" />
-      <link rel="shortcut icon" href="src/assets/logo.png" type="image/x-icon" />
-      <script type="text/javascript" src="./lib/ui/jquery.ui.accordion.min.js"></script>
-      <script type="text/javascript" src="./lib/ui/jquery.ui.slider.min.js"></script>
-
+      <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
+      
       <!--</style>-->
       <!-- font awesome -->
       <link
@@ -34,7 +32,7 @@
          crossorigin="anonymous"
          />
       <link rel="stylesheet" href="style/css/main.css" />
-      <title>Shortest Path Algorithms</title>
+      <title>Pirates On Mars☠️</title>
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165471746-1"></script>
       <script>
@@ -114,7 +112,7 @@
                                         />
                                             Weight Node
                                     </label>
-                                    <!--<div >-->
+
                                     <label
                                         class="btn btn-primary"
                                         data-toggle="tooltip"
@@ -131,7 +129,7 @@
                                             disabled="true"
                                         />
                                             Station Node
-                                  </label> <!--</div>-->
+                                  </label>
 
                                             
                                     <label
@@ -146,14 +144,14 @@
                                 </div>
                         </div>
 
-                        <div id = "speed-weight-row" style="margin-top: 5px;">
+                        <div id = "speed-weight-row" style="margin-top: 0px;">
                         <div class="panel-default">
                         <div class="panel-heading">
                            <h6 class="panel-title">
-                              <button id="speed-selection" class="btn btn-info" title="Select Visualization Speed" style="padding: 2px; margin-bottom:13px;"data-toggle="collapse" data-target="#speed-choice" aria-expanded="false">
+                              <button id="speed-selection" class="btn btn-info" title="Select Visualization Speed" style="padding: 2px; margin-bottom:3px;"data-toggle="collapse" data-target="#speed-choice" aria-expanded="false">
                                  Speed
                               </button>
-                              <button id="weight-selection" class="btn btn-info" title="Select Weight of Weight Nodes" style="padding: 2px; margin-bottom:13px;"data-toggle="collapse" data-target="#weight-choice" aria-expanded="false">
+                              <button id="weight-selection" class="btn btn-info" title="Select Weight of Weight Nodes" style="padding: 2px; margin-bottom:3px;"data-toggle="collapse" data-target="#weight-choice" aria-expanded="false">
                                 Weight
                              </button>
 
@@ -165,6 +163,8 @@
                                 <input type="checkbox" style="padding: 3px; margin-top:7px;" id="intermediateNodes" onclick="ShowHideDiv2(this)"/>
                                 Allow Stations
                             </label>
+                            <!--MULTIPLE STOPS TEXT BOX-->
+                            <input type="number" class="spinner" name="max_cost" style="width: 125px; height: 32px; border-radius: 6px; border-color: rgb(0,0,0);" title="Maximum Cost for Multiple Stops" id="maxcost" min="0" placeholder="Maximum Cost">
                            </h6>
                         </div>
                         
@@ -190,23 +190,16 @@
                             </div>
                          </div>
                      </div>
-                     </div>
+                    </div>
+            
 
-                    
-
-                        <!-- algorithm name display and clear graph btn -->
-
-
-
-              
-
-                    <div class="p-1 d-flex justify-content-center align-items-center" style="margin-bottom: 13px;">
+                    <div class="p-1 d-flex justify-content-center align-items-center" style="margin-bottom: 5px;">
                         <button class="btn btn-sm btn-secondary" id="reset-graph-btn">
-                            Reset Graph
+                            Reset
                         </button>&nbsp;
 
                         <button class="btn btn-sm btn-dark" id="clear-graph-btn">
-                            Clear Graph
+                            Clear
                         </button>
                     </div>
                     <div class="panel-default">
@@ -224,66 +217,63 @@
                             <div id="tutorial" class="btn btn-sm btn-dark">
                           
                                 <div class="mt-4 ml-4 mr-4 mb-4 font-small" id="tutorialText">
-                                  <div class="text-center">
+                                  <div class="text-left">
                                     <div class="panel-body">
-                                    <h4>About</h4>
+                                    <h4 class="text-center">About</h4>
                                   </div>
-                                  <strong>The Grid: </strong><br>A graph, with each cell representing a node. Each cell is connected to adjacent
+                                  Captain! Are you excited to begin your next space adventure? Pull up your socks and get ready for your journey to Mars.We are aware
+                                   that when you're out there, you'll need a trustworthy <br>path finder to aid you. And thus, we put together this application for you!<br><br>
+                                  <strong class="text-info">The Grid: </strong> A graph, with each cell representing a node. Each cell is connected to adjacent
                                   cells horizontally, vertically, and diagonally by invisible edges that (by default) cost to traverse.<br>
                                   Click on <i>Start Node</i> and <i>End Node</i> buttons to move around the <i>Source</i> and <i>Destination</i> nodes respectively.
-                                  <br><br><strong>Weights/Walls: </strong><br>Drag or click anywhere on the grid to place or remove weights
+                                  <br><br><strong class="text-info">Weights/Walls: </strong> Drag or click anywhere on the grid to place or remove weights
                                   or walls.
-                                  <br><span class="tab">- <strong class="text-danger">Weighted cells: </strong>These cells have edges that cost 5
-                                    to traverse horizontally or vertically. They represent environments that are difficult to cross.<br>(Note : Breadth First 
+                                  <br><br><span class="tab"> <strong class="text-danger">Weighted cells: </strong>These cells have edges that cost more to traverse horizontally or vertically. They represent environments that are difficult to cross.<br>(Note : Breadth First 
                                     Search is an unweighted algorithm.)
-                                    <br><span class="tab">- <strong class="text-danger">Walled cells: </strong>These cells do not have edges
+                                    <br><span class="tab"> <strong class="text-danger">Walled cells: </strong>These cells do not have edges
                                       connecting them to adjacent cells. They represent obstacles.
-                                      <br><br><strong>Speed Selection: </strong><br>Use the dropdown to toggle between simulation speeds for two node path-finders.
+                                      <br><br><strong class="text-info">Speed Selection: </strong> Use the dropdown to toggle between simulation speeds for two node path-finders.
                                       
-                                      <br><br><strong>Station Node: </strong><br> CLick anywhere to add multiple stations. The <i><b>Traveling Salesman</b></i> problem 
-                                      finds the least cost path that starts from <i><b>Source</b></i> (green), covers all <i><b>Stations</b></i> (blue) and the 
-                                      <i><b>Destination</b></i> (red),<br>and comes back to <i><b>Source</b></i>. The <i><b>Multiple Stops</b></i> algorithm is a path 
-                                      finder that attempts to find the optimum path from <i><b>Source</b></i> to <i><b>Destination</b></i> covering as many stations in 
-                                      between as possible,<br>in order that the cost incurred is lesser than or equal to the maximum cost given by the user (default : 120).<br>
-                                      Feel free to experiment and don't forget to have fun!
+                                      <br><br><strong class="text-info">Station Node: </strong>  Click anywhere to add multiple stations. Feel free to experiment and don't forget to have fun!
+
+                                      <br><br><strong class="text-info">Problem Statements And Algorithms: </strong><br>1. Find the <i><b>shortest</b></i> path from Earth <i>(source)</i> 
+                                      to Mars <i>(destination)</i>. You can define the state of the space using various features, choose an algorithm from the panel, set 
+                                      the visualization speed,<br> select weights of all the weighted nodes, and click visualize to see the pathfinder build the path.
+                                       Algorithms : <b>AStar</b>, <b>ID Depth First Search</b>, <b>Breadth First Search</b>, <b>IDAStar</b>, <b>Best First Search</b>, 
+                                       <br><b>Dijkstra</b>.<br>
+                                      2. Traveling Salesman - Define <i><b>intermediate stations</b></i> and find the least cost path that starts from Earth <i>(source)</i>, 
+                                      covers all intermediate points <i>(stations)</i>, reaches Mars <i>(destination)</i> at some <br>point and returns to Earth. The <b>Traveling 
+                                      Salesman</b> algorithm does this for you.<br>3. <b><i>Path optimization with a maximum cost constraint</i></b> - Suppose your spacecraft is on a 
+                                      rescue mission. Every intermediate station is a <b><i>space station</i></b> and has someone who needs your help to <br>escape. But alas, 
+                                      your craft has a limited amount of fuel, and you must reach Mars <i>(destination)</i> before you run out. The <b>Multiple Stops</b> 
+                                      algorithm tries to optimize at every point, so that with the <br>available fuel, you can reach your destination, while saving as many 
+                                      people as you can, on your way there.
                                 </span></span></div>
                               </div>
                            </div>
                         </div>
                      </div>
                     </div>
-
-
-
-
-
          </nav>
-
-
          
-        
 
-         
+
          <div class="algorithm_box" id="algorithm_panel">
          <div class="panel-group panel right_panel" id="algorithm_panelheader" draggable="true" title="Select Algorithm (drag / scroll)">
             <h4 style="text-align: center; color: rgb(255, 255, 255);">Algorithms</h4>
                 <div class="panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                        <a type="button" class="btn btn-block dropbtn algo-selection" id="iddfs_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="idDepthFirst" data-target="#iddfs_list" aria-expanded="false">
+                        <a type="button" class="btn btn-block dropbtn algo-selection" id="iddfs_algo" data-toggle="collapse" data-algo="idDepthFirst" data-target="#iddfs_list" aria-expanded="false">
                             ID Depth First Search (IDDFS)
                         </a></h4>
                     </div>
                    <div class="panel-collapse collapse collapse in" id="iddfs_list" data-parent="#algorithm_panel">
                       <div class="panel-body">
                               <h5>Options</h5>
-                              <button> i </button>     
-                           
                          <div class="optional sub_options radioLeft">
                                <input type="checkbox" class="allow_diagonal" checked>
                                <label class="option_label">Allow Diagonal</label> <br>
-                               <!--<input type="checkbox" class="bi_directional">
-                               <label class="option_label">Bi-directional</label> <br>-->
                                <input type="checkbox" class="dont_cross_corners">
                                <label class="option_label">Don't Cross Corners</label> <br>
                          </div>
@@ -296,13 +286,13 @@
                 <div class="panel-default" id="dvPassport" style="display: none">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                        <a type="button" class="btn btn-block dropbtn algo-selection" id="bfs_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="bfs" data-target="#bfs_list" aria-expanded="false">
+                        <a type="button" class="btn btn-block dropbtn algo-selection" id="bfs_algo" data-toggle="collapse" data-algo="bfs" data-target="#bfs_list" aria-expanded="false">
                             Breadth-First-Search
                         </a></h4>
                     </div>
                    <div class="panel-collapse collapse collapse in" id="bfs_list" data-parent="#algorithm_panel">
                       <div class="panel-body">
-                              <h5>Options</h5><button> i</button>
+                              <h5>Options</h5>
                          <div class="optional sub_options radioLeft">
                                <input type="checkbox" class="allow_diagonal" checked>
                                <label class="option_label">Allow Diagonal</label> <br>
@@ -318,13 +308,13 @@
                 <div class="panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                        <a type="button" class="btn btn-block dropbtn algo-selection" id="bestfirst_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="bestFirst" data-target="#best_first_list" aria-expanded="false">
+                        <a type="button" class="btn btn-block dropbtn algo-selection" id="bestfirst_algo" data-toggle="collapse" data-algo="bestFirst" data-target="#best_first_list" aria-expanded="false">
                             Best-First-Search
                         </a></h4>
                     </div>
                    <div class="panel-collapse collapse collapse in" id="best_first_list" data-parent="#algorithm_panel">
                       <div class="panel-body">
-                              <h5>Options</h5> <button> i</button>
+                              <h5>Options</h5> 
                          <div class="optional sub_options radioLeft">
                                <input type="checkbox" class="allow_diagonal" checked>
                                <label class="option_label">Allow Diagonal</label> <br>
@@ -351,13 +341,13 @@
                 <div class="panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                        <a type="button" class="btn btn-block dropbtn algo-selection" id="astar_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="aStar" data-target="#a_star_list" aria-expanded="false">
+                        <a type="button" class="btn btn-block dropbtn algo-selection" id="astar_algo" data-toggle="collapse" data-algo="aStar" data-target="#a_star_list" aria-expanded="false">
                            A-Star
                         </a></h4>
                     </div>
                    <div class="panel-collapse collapse collapse in" id="a_star_list" data-parent="#algorithm_panel">
                       <div class="panel-body">
-                              <h5>Options</h5><button> i</button>
+                              <h5>Options</h5>
                          <div class="optional sub_options radioLeft">
                                <input type="checkbox" class="allow_diagonal" checked>
                                <label class="option_label">Allow Diagonal</label> <br>
@@ -384,22 +374,18 @@
             <div class="panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                    <a type="button" class="btn btn-block dropbtn algo-selection" id="travelsales_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="travelSales" data-target="#travel_sales_list" aria-expanded="false">
+                    <a type="button" class="btn btn-block dropbtn algo-selection" id="travelsales_algo" data-toggle="collapse" data-algo="travelSales" data-target="#travel_sales_list" aria-expanded="false">
                         Traveling Salesman (*)
                     </a></h4>
                 </div>
                <div class="panel-collapse collapse collapse in" id="travel_sales_list" data-parent="#algorithm_panel">
                   <div class="panel-body">
-                          <h5>Options</h5><button> i</button>
+                          <h5>Options</h5>
                      <div class="optional sub_options radioLeft">
                            <input type="checkbox" class="allow_diagonal" checked>
                            <label class="option_label">Allow Diagonal</label> <br>
-                           <!--<input type="checkbox" class="bi_directional">
-                           <label class="option_label">Bi-directional</label> <br>-->
                            <input type="checkbox" class="dont_cross_corners">
                            <label class="option_label">Don't Cross Corners</label> <br>
-                           <!--<input class="spinner" name="max_cost">
-                           <label class="option_label">Maximum Cost (>= Actual Cost incurred)</label>-->
                      </div>
                           <h5>Heuristic</h5>
                      <div id="travel_sales_heuristic" class="sub_options radioLeft">
@@ -419,20 +405,19 @@
                 <div class="panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                        <a type="button" class="btn btn-block dropbtn algo-selection" id="multistop_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="multiStop" data-target="#multi_stop_list" aria-expanded="false">
+                        <a type="button" class="btn btn-block dropbtn algo-selection" id="multistop_algo" data-toggle="collapse" data-algo="multiStop" data-target="#multi_stop_list" aria-expanded="false">
                             Multiple Stops (*)
                         </a></h4>
                     </div>
                    <div class="panel-collapse collapse collapse in" id="multi_stop_list" data-parent="#algorithm_panel">
                       <div class="panel-body">
-                              <h5>Options</h5><button> i</button>
+                              <h5>Options</h5>
                          <div class="optional sub_options radioLeft">
                                <input type="checkbox" class="allow_diagonal" checked>
                                <label class="option_label">Allow Diagonal</label> <br>
                                <input type="checkbox" class="dont_cross_corners">
                                <label class="option_label">Don't Cross Corners</label> <br>
-                               <input type="number" name="max_cost" id="maxcost" class="form-control" value="105">
-                               <label class="option_label" for="maxcost">Maximum Cost (>= Actual Cost incurred)</label>
+                               <p>Set the maximum cost for this algo in the above text box</p>
                          </div>
                               <h5>Heuristic</h5>
                          <div id="multi_stop_heuristic" class="sub_options radioLeft">
@@ -452,13 +437,13 @@
                 <div class="panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                        <a type="button" class="btn btn-block dropbtn algo-selection" id="idastar_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="idAStar" data-target="#ida_star_list" aria-expanded="false">
+                        <a type="button" class="btn btn-block dropbtn algo-selection" id="idastar_algo" data-toggle="collapse" data-algo="idAStar" data-target="#ida_star_list" aria-expanded="false">
                             IDA-Star
                         </a></h4>
                     </div>
                    <div class="panel-collapse collapse collapse in" id="ida_star_list" data-parent="#algorithm_panel">
                       <div class="panel-body">
-                              <h5>Options</h5><button> i</button>
+                              <h5>Options</h5>
                          <div class="optional sub_options radioLeft">
                                <input type="checkbox" class="allow_diagonal" checked>
                                <label class="option_label">Allow Diagonal</label> <br>
@@ -483,14 +468,13 @@
                 <div class="panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                        <a type="button" class="btn btn-block dropbtn algo-selection" id="dijkstra_algo" onclick="stationsCheck(this)" data-toggle="collapse" data-algo="dijkstra" data-target="#dijkstra_list" aria-expanded="false">
+                        <a type="button" class="btn btn-block dropbtn algo-selection" id="dijkstra_algo" data-toggle="collapse" data-algo="dijkstra" data-target="#dijkstra_list" aria-expanded="false">
                             Dijkstra's Algorithm (A* with h=0)
                         </a></h4>
                     </div>
                    <div class="panel-collapse collapse collapse in" id="dijkstra_list" data-parent="#algorithm_panel">
                       <div class="panel-body">
-                         <!--<a class="dropdown-item dropdown-toggle"
-                            >--><h5>Options</h5><button> i</button>
+                            <h5>Options</h5>
                          <div class="optional sub_options radioLeft">
                                <input type="checkbox" class="allow_diagonal" checked>
                                <label class="option_label">Allow Diagonal</label> <br>
@@ -504,19 +488,8 @@
                 </div>
 
               <button class="btn-block btn-warning start-stop-btn">Visualize</button>
-
             </div>
          </div>
-
-
-
-
-
-
-
-
-
-
 
 
          <div id="info_panel" class="info_right_panel" draggable="true" title="information of algorithm (drag / scroll)">
