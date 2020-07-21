@@ -37,7 +37,7 @@ function RandomGrid() {
     setTimeout(() => {
       var random_col = Math.round(Math.random() * cols);
       var random_row = Math.round(Math.random() * rows);
-      if(random_row!=10 && random_col!=15 && random_col!=30){
+      if(random_row!=5 && random_col!=2 && random_col!=5){
             grid.setBlock(random_row, random_col);
       }
     }, sec);
