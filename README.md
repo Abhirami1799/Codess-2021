@@ -6,7 +6,7 @@ This is a path finding application that covers **three** path finding and optimi
 
 2. Traveling Salesman - Define **_intermediate stations_** and find the least cost path that starts from Earth _(source)_, covers all intermediate points _(stations)_, reaches Mars _(destination)_ at some point and returns to Earth.
 
-3. Path optimization with a maximum cost constraint - Suppose your spacecraft is on a rescue mission. Every intermediate station is a **_space station_** and has someone who needs your help to escape. But alas, your craft has a limited amount of fuel, and you must reach Mars _(destination)_ before you run out. The _Multiple Stops_ algorithm tries to optimize at every point, so that with the available fuel, you can reach your destination, while saving as many people as you can, on your way there.
+3. Path optimization with a maximum cost constraint - Suppose your spacecraft is on a rescue mission. Every intermediate station is a **_space station_** and has someone who needs your help to escape. But alas, your craft has a limited amount of fuel, and you must reach Mars _(destination)_ before you run out. The _Multiple Stops_ algorithm tries to optimize at every point, so that with the available fuel, you can reach your destination, while saving as many people as you can, on your way there. The default maximum value of the cost that can be incurred on the journey is set to 100. You can change it by entering the value in the **_Maximum Cost_** input box.
 
 ### Algorithm Division:
 
@@ -28,6 +28,34 @@ This is a path finding application that covers **three** path finding and optimi
 
 The last two algorithms may be used for the first case too.
 
-### Features:
+### Using The Web Interface:
 
-**Walls** _(obstacles)_, **Weights** _(difficult regions to traverse)_, **Stations** _(intermediate points for problems 2 and 3)_, options to select speed and weight values _(how difficult it is to traverse a weighted region)_, and an **Algorithm Panel**. You can click the radio button to choose the desired node type _(drag enabled)_.
+The navigation panel contains various radio buttons to set different nodes :
+
+* **Start Node** _(source - green)_ - To change the location of the starting point.
+
+* **End Node** _(destination - red)_ - To change the location of the end point.
+
+* **Wall Node** _(obstacles - black)_ - To set obstacles in space. These are essentially nodes with their weights set to **_Infinity_**
+
+* **Weight Node** _(difficult regions to traverse - yellow)_ - To set regions in space that are difficult to traverse,   i.e., would cost more. The **_Weight_** dropdown allows you to set the weight values of these nodes.
+
+* **Station Node** _(intermediate points for problems 2 and 3 - blue)_ - To set intermediate points, you must first check the **_Allow Stations_** checkbox. This would enable the _Station Node_ button. These are taken into consideration only in the _Traveling Salesman_ and _Multiple Stops_ algorithms. 
+_Note: As long as there are Station Nodes on the grid, you can only run the two algos listed above._
+
+* **Random Grid** - To randomly add _Walls_ in space.
+
+* **Dropdowns** - _Speed_ to select the speed of visualization for problem 1, _Weight_ to set weight value of the Weight nodes.
+
+* **Checkboxes** - _Show Unweighted_ to display the unweighted algorithm, i.e., _Breadth First Search_ in the Algorithm Panel on the right, _Allow Stations_ to enable the Station Node radio button.
+
+* **Maximum Cost** - To input a value for the _Maximum Cost_ used in the _Multiple Stops_ algorithm. Should you choose to set no value, a default of 100 is considered as the maximum cost. 
+
+* **Reset Graph** - To clear the traversals and path of the previous visualization.
+
+* **Clear Graph** - To clear the Grid and set the _Start_ and _End_ nodes to default positions.
+
+* **Tutorial - i** - 
+
+
+* **Algorithm Panel** - 

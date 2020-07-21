@@ -74,9 +74,9 @@ a {
   left: 10px;
   width: 1260px;
   position:absolute;
-  background:rgba(11, 71, 0, 0.952);
+  background:rgba(5, 29, 0, 0.952);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.863);
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   border-color: rgb(0, 0, 0);
   border-radius: 8px;
 }
