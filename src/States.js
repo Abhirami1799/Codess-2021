@@ -38,10 +38,10 @@ const states = Object.freeze({
     BOX_TYPE_WEIGHT_COLORS: ["#ffa703","#b37400"]
   }),
   DEFAULT_POS: Object.freeze({
-    START_X:15,
-    START_Y:10,
-    END_X:30,
-    END_Y:10
+    START_X:2,
+    START_Y:5,
+    END_X:5,
+    END_Y:5
   }),
   TOOL_MODE: Object.freeze({
     START_NODE: 0,
