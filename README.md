@@ -55,7 +55,45 @@ _Note: As long as there are Station Nodes on the grid, you can only run the two 
 
 * **Clear Graph** - To clear the Grid and set the _Start_ and _End_ nodes to default positions.
 
-* **Tutorial - i** - 
+* **Tutorial - i** - A basic tutorial to using the web application.
+
+* **Algorithm Panel** - Contains the algorithms listed above. _Allow Diagonal_ will enable diagonal traversal, _Dont Cross Corners_ will prevent the path from crossing the corners of _Wall Nodes_, _Bi-Directional_ allows the algorithm start searching from the start and end simultaneously and _Heuristic_ allows you to choose a heuristic function for algorithms that have the feature.
 
 
-* **Algorithm Panel** - 
+- Used Paper.js to build the Grid and for visualizations.
+
+### Code Organization:
+
+---- index.html
+---- assets
+         ---- DiagonalOptions.js
+         ---- EnableDisableStations.js
+         ---- block_generators.js
+         ---- draggable.js
+         ---- logo.png
+         ---- utilities.js
+---- finders
+         ---- AStar.js
+         ---- BiAStar.js
+         ---- BiBreadthFirstSearch.js
+         ---- BranchAndBound.js
+         ---- BreadthFirstSearch.js
+         ---- IDAStar.js
+         ---- IDDepthFirstSearch.js
+         ---- MultipleStops.js
+         ---- TravelingSalesman.js
+---- src
+         ---- App.js
+         ---- DataStructures.js
+         ---- Graph.js
+         ---- Grid.js
+         ---- Heuristic.js
+         ---- Node.js
+         ---- Path.js
+         ---- Runner.js
+         ---- States.js
+---- style
+         ---- css
+                 ---- main.css
+         ---- scss
+                 ---- main.scss
