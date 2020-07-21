@@ -63,37 +63,38 @@ _Note: As long as there are Station Nodes on the grid, you can only run the two 
 - Used Paper.js to build the Grid and for visualizations.
 
 ### Code Organization:
-
----- index.html
----- assets
-         ---- DiagonalOptions.js
-         ---- EnableDisableStations.js
-         ---- block_generators.js
-         ---- draggable.js
-         ---- logo.png
-         ---- utilities.js
----- finders
-         ---- AStar.js
-         ---- BiAStar.js
-         ---- BiBreadthFirstSearch.js
-         ---- BranchAndBound.js
-         ---- BreadthFirstSearch.js
-         ---- IDAStar.js
-         ---- IDDepthFirstSearch.js
-         ---- MultipleStops.js
-         ---- TravelingSalesman.js
----- src
-         ---- App.js
-         ---- DataStructures.js
-         ---- Graph.js
-         ---- Grid.js
-         ---- Heuristic.js
-         ---- Node.js
-         ---- Path.js
-         ---- Runner.js
-         ---- States.js
----- style
-         ---- css
-                 ---- main.css
-         ---- scss
-                 ---- main.scss
+```
+---- index.html     
+---- assets     
+         ---- DiagonalOptions.js        
+         ---- EnableDisableStations.js      
+         ---- block_generators.js       
+         ---- draggable.js      
+         ---- logo.png      
+         ---- utilities.js      
+---- finders        
+         ---- AStar.js      
+         ---- BiAStar.js        
+         ---- BiBreadthFirstSearch.js       
+         ---- BranchAndBound.js     
+         ---- BreadthFirstSearch.js     
+         ---- IDAStar.js        
+         ---- IDDepthFirstSearch.js     
+         ---- MultipleStops.js      
+         ---- TravelingSalesman.js      
+---- src        
+         ---- App.js        
+         ---- DataStructures.js     
+         ---- Graph.js      
+         ---- Grid.js       
+         ---- Heuristic.js      
+         ---- Node.js       
+         ---- Path.js       
+         ---- Runner.js     
+         ---- States.js     
+---- style      
+         ---- css       
+                 ---- main.css      
+         ---- scss      
+                 ---- main.scss     
+```
