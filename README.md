@@ -1,12 +1,12 @@
 # Pirates On Mars
 
-This is a path finding application that covers **three** path finding and optimization problems. Imagine you and your friends are on a spacecraft. You could be faced with all kinds of unprecedented problems like space debris, low fuel, and what not! We have modelled this application, keeping in mind such scenarios. The application allows you to _choose the locations of the source and destination_, set **obstacles** in space, and define difficult environments as **weighted** nodes for every problem. Before we understand the remaining features and functionalities, let's look at the three aforementioned problems:
+This is a path finding application that covers **three** path finding and optimization problems. Imagine you and your friends are on a rover on Mars. You could be faced with all kinds of unprecedented problems like water bodies, frozen regions, volcanos, mountains, food shortage, low fuel, and what not! We have modelled this application, keeping in mind such scenarios. The application allows you to _choose the locations of the source and destination_, set **obstacles** on Mars, and define difficult environments as **weighted** nodes for every problem. Before we understand the remaining features and functionalities, let's look at the three aforementioned problems:
 
-1. Find the **_shortest_** path from Earth _(source)_ to Mars _(destination)_. You can define the state of the space using various features, choose an algorithm from the panel, set the visualization speed, select weights of all the weighted nodes, and click visualize to see the pathfinder build the path.
+1. Find the **_shortest_** path from _source_ to _destination_. You can define the state of the space using various features, choose an algorithm from the panel, set the visualization speed, select weights of all the weighted nodes, and click visualize to see the pathfinder build the path.
 
-2. Traveling Salesman - Define **_intermediate stations_** and find the least cost path that starts from Earth _(source)_, covers all intermediate points _(stations)_, reaches Mars _(destination)_ at some point and returns to Earth.
+2. Traveling Salesman - Define **_intermediate stations_** and find the least cost path that starts from _source_, covers all intermediate points _stations_, reaches _destination_ at some point and returns to the source.
 
-3. Path optimization with a maximum cost constraint - Suppose your spacecraft is on a rescue mission. Every intermediate station is a **_space station_** and has someone who needs your help to escape. But alas, your craft has a limited amount of fuel, and you must reach Mars _(destination)_ before you run out. The _Multiple Stops_ algorithm tries to optimize at every point, so that with the available fuel, you can reach your destination, while saving as many people as you can, on your way there. The default maximum value of the cost that can be incurred on the journey is set to 100. You can change it by entering the value in the **_Maximum Cost_** input box.
+3. Path optimization with a maximum cost constraint - Suppose your rover is on a mission. Every intermediate station is a **_food refilling station_**. But alas, your rover has a limited amount of fuel, and you must reach the _destination_ before you run out. The _Multiple Stops_ algorithm tries to optimize at every point, so that with the available fuel, you can reach your destination, while visiting as many stations as you can, on your way there. The default maximum value of the cost that can be incurred on the journey is set to 100. You can change it by entering the value in the **_Maximum Cost_** input box.
 
 ### Algorithm Division:
 
@@ -36,9 +36,9 @@ The navigation panel contains various radio buttons to set different nodes :
 
 * **End Node** _(destination - red)_ - To change the location of the end point.
 
-* **Wall Node** _(obstacles - black)_ - To set obstacles in space. These are essentially nodes with their weights set to **_Infinity_**
+* **Wall Node** _(obstacles - black)_ - To set obstacles in the space. These are essentially nodes with their weights set to **_Infinity_**
 
-* **Weight Node** _(difficult regions to traverse - yellow)_ - To set regions in space that are difficult to traverse,   i.e., would cost more. The **_Weight_** dropdown allows you to set the weight values of these nodes.
+* **Weight Node** _(difficult regions to traverse - yellow)_ - To set regions in te space that are difficult to traverse,   i.e., would cost more. The **_Weight_** dropdown allows you to set the weight values of these nodes.
 
 * **Station Node** _(intermediate points for problems 2 and 3 - blue)_ - To set intermediate points, you must first check the **_Allow Stations_** checkbox. This would enable the _Station Node_ button. These are taken into consideration only in the _Traveling Salesman_ and _Multiple Stops_ algorithms. 
 _Note: As long as there are Station Nodes on the grid, you can only run the two algos listed above._
