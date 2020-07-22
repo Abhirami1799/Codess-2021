@@ -121,16 +121,21 @@ class MultipleStops
 
         if(lastInter == -1)
         {
-            alert("Sorry... No way to cover all nodes 😢");
+            alert("Sorry... No way to cover all nodes 😢. Maybe the maximum cost is too low.");
             return [];
         }
 
         for(i = 0; i <= lastInter; i++)
-        {    
+        {  
+            var node = grid.graph.getNodeAt(route[i].x, route[i].y);  //HERE
+            node.changeText(i);  // HERE
+
             grid.graph.resetVisited();
 
             if(i == lastInter)
             {
+                var node = grid.graph.getNodeAt(route[l - 1].x, route[l - 1].y);  //HERE
+                node.changeText(i + 1);  // HERE
                 path = this.searchAlgo.pathFinder(route[i].x, route[i].y, route[l - 1].x, route[l - 1].y,
                                                     graph, 'a-star', false);
             }

@@ -128,7 +128,6 @@ class AStar
                 }
             }
         }
-        alert("Sorry...No path found 😢");
         return [];
     }
 };

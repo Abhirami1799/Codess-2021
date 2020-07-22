@@ -23,7 +23,7 @@ const states = Object.freeze({
   DEFAULT_WEIGHT: 3,
   MAX_STATIONS: 6,
   MAX_END_NODE_COUNT: 3,
-  MAX_FIXED_FRAME_COUNT: 400,
+  MAX_FIXED_FRAME_COUNT: 1200,
   DEFAULT_BOX_SIZE: window.innerWidth > 600 ? 30 : 30,
   COLORS: Object.freeze({
     BOX_BORDER_COLOR: "rgba(150,150,150,0.8)",
@@ -63,7 +63,6 @@ const states = Object.freeze({
     Fast: 0,
     Medium: 128,
     Slow: 256,
-    Step: null
   }),
   Runners: Object.freeze({
     aStar: AStar,
