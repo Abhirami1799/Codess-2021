@@ -89,6 +89,10 @@ class TravelingSalesman
         for(i = 0; i < routeNew.length; i++)
         {
             grid.graph.resetVisited();
+            
+            var node = grid.graph.getNodeAt(route[routeNew[i][0]].x, route[routeNew[i][0]].y);  //HERE
+            node.changeText(i);  // HERE
+
             path = this.searchAlgo.pathFinder(route[routeNew[i][0]].x, route[routeNew[i][0]].y, route[routeNew[i][1]].x, route[routeNew[i][1]].y,
                                                     graph, 'a-star', false);
             if(path.length - 2 > 0)

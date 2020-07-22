@@ -30,7 +30,7 @@ class Box extends Node
       origin: this.path.bounds.topLeft,
       destination: this.path.bounds.bottomRight
     };
-    this.weight = states.Context.weight;
+    this.weight = 1;   //  HERE
   }
 
   removeAsStart()
@@ -98,7 +98,7 @@ class Box extends Node
       300
     );
 
-    this.weight = 5;
+    this.weight = states.Context.weight;  //  HERE
   }
 
   setAsStation()
@@ -162,6 +162,8 @@ class Box extends Node
       this.setAsClear();
     }
 
+    this.resetText();  //  HERE
+
     if(this.visits != undefined)
     {
       this.visits = undefined;
@@ -185,8 +187,9 @@ class Box extends Node
     });
     this.__centerText = new paper.PointText({
       point: this.__path.bounds.center,
-      fillColor: "black",
-      justification: "center"
+      fillColor: "white",
+      justification: "center",
+      fontSize: 18  //  HERE
     });
     this.__path.addChild(this.__centerText);
   }
@@ -304,6 +307,9 @@ class Grid
         var box = this.getBox(r,c),
             x = box.nodeType;
         box.isVisited = false;
+
+        box.resetText(); //  HERE
+
         if(x !== states.BOX_TYPES.START_NODE && x !== states.BOX_TYPES.END_NODE)
           {
             if (x == states.BOX_TYPES.BLOCK || x == states.BOX_TYPES.ERROR_NODE)

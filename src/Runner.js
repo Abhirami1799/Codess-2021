@@ -333,6 +333,11 @@ class Runner
             path = this.finder.pathFinder(start.x, start.y, end.x, end.y, this.grid.graph);
         }
 
+        if(this.finderName == "A-Star" && !path.length)
+        {
+            alert("Sorry...No path found 😢");
+        }
+
         if(path.length && this.finderName != "Multiple Stops" && this.finderName != "Traveling Salesman" && this.finderName != "Bi-Directional A-Star")
         {
             this.path = path;
@@ -544,6 +549,9 @@ class Runner
                 for (var c = 0; c < this.grid.graph.columnCount; c++)
                 {
                     var box = this.grid.getBox(r, c);
+
+                    box.resetText(); //  HERE
+
                     if(box.nodeType !== states.BOX_TYPES.START_NODE ||
                         box.nodeType !== states.BOX_TYPES.END_NODE)
                     {
