@@ -44,7 +44,7 @@ The navigation panel contains various radio buttons to set different nodes :
 
 * **Wall Node** _(obstacles - black)_ - To set obstacles in the space. These are essentially nodes with their weights set to **_Infinity_**
 
-* **Weight Node** _(difficult regions to traverse - yellow)_ - To set regions in te space that are difficult to traverse,   i.e., would cost more. The **_Weight_** dropdown allows you to set the weight values of these nodes.
+* **Weight Node** _(difficult regions to traverse - yellow)_ - To set regions in the space that are difficult to traverse,   i.e., would cost more. The **_Weight_** dropdown allows you to set the weight values of these nodes.
 
 * **Station Node** _(intermediate points for problems 2 and 3 - blue)_ - To set intermediate points, you must first check the **_Allow Stations_** checkbox. This would enable the _Station Node_ button. These are taken into consideration only in the _Traveling Salesman_ and _Multiple Stops_ algorithms. 
 _Note: As long as there are Station Nodes on the grid, you can only run the two algos listed above._
