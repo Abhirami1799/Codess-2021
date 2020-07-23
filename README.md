@@ -24,7 +24,13 @@ This is a path finding application that covers **three** path finding and optimi
 
 * Path Optimization with Multiple Nodes and a Maximum Cost:
 
-    1. Multiple Stops _(f-score optimization like AStar)_
+    1. Multiple Stops _(f-score optimization like AStar)_ : The algorithm finds all distances between the involved nodes (Start, End and Station Nodes). It uses these distances to populate an adjacency matrix. The optimization method used is similar to A*, wherein for every station node that is being considered, we calculate a g value, heuristic and take their weighted sum as the f-score. We start by assuming that only the start node and end node are present in the current route. To find the best node to be visited on the path from start to end, we store the distances of all station nodes from the start as their respective g values, and the distances to the end nodes as their respective heuristic values. The F-Score is then the weighted sum of 'g' and 'h'. We then select the station node with the minimum F-Score to be included in the route from start to end. The next step is to assume that our route is <b><i>Start -> Station Node 1(previously included) -> End </i></b>. We now look for a station node which can be inserted in between station node 1 and the end node. For this, we calculate the F-Scores of the remaining station nodes as weighted sum of g & h wherein<br>
+```
+g = dist(start -> station node1) + dist(station node1 -> current station node) 
+h = dist(current station node -> End Node)
+```
+The algorithm then finds the station node with the least F-Score to include in the path which would then be <b><i>Start -> Station Node 1 -> Station Node 2 -> End </i></b>. This is repeated until all eligible station nodes are included in the path such that the total cost of traversal is less than the maximum cost given by the user.   
+Note that the objective is not to give the shortest path will all the station nodes included. The nodes will be visited in the order described by the algorithm. One can get an intuition by imagining that the station nodes are included in the increasing order of their distance from the line connecting the Start Node and End Node.
 
 The last two algorithms may be used for the first case too.
 
