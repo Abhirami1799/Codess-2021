@@ -333,7 +333,7 @@ class Runner
             path = this.finder.pathFinder(start.x, start.y, end.x, end.y, this.grid.graph);
         }
 
-        if(this.finderName == "A-Star" && !path.length)
+        if((this.finderName == "A-Star" || this.finderName == "Dijkstra" || this.finderName == "Best First Search") && !path.length)  //  HERE
         {
             alert("Sorry...No path found 😢");
         }
