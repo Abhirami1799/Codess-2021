@@ -13,7 +13,7 @@ class MultipleStops
                                       'dontCrossCorners' : this.dontCrossCorners,
                                       'heuristic' : this.heuristic});
         this.maxCost = options.maxCost || 100;
-        this.w = 0.6;
+        this.w = 0.4;
     }
 
     pathFinder(startX, startY, endX, endY, grid, lines)
@@ -28,7 +28,7 @@ class MultipleStops
             algo has been split into different sections for ease of understanding
         */
     
-        var route = [];
+        var route = [], routeNew = [];
         /*
             arrayOfInter is an array of intermediate coordinates [x,y]
         */
@@ -90,9 +90,12 @@ class MultipleStops
         start.g = 0;
         end.h = 0;
         end.g = end.f = start.h = start.f = adjacencyMatrix[0][l - 1];
+
+        var lastInter = -1, path = [];
    
         for(i = 1; i < l - 1; i++)
         {
+            routeNew = route;
             for(j = i; j < l - 1; j++)
             {
                 route[j].g = adjacencyMatrix[route[i - 1].id][route[j].id] + route[i - 1].g;
@@ -106,17 +109,71 @@ class MultipleStops
                     route[j] = temp;
                 }
             }
-        }
 
-        var lastInter = -1, path = [];
-  
-        for(var i = l - 2; i >= 0; i--)
-        {
-            if(route[i].f <= this.maxCost)
+            var gCurr = 0, gNew, fNew, currCost, costArray = [], minIndex = 1;
+            currCost = this.w * (route[i - 1].g + adjacencyMatrix[route[i - 1].id][route[i].id]) +
+                            (1 - this.w) * adjacencyMatrix[route[i].id][route[l - 1].id];
+            
+            for(j = 1; j < i; j++)
             {
-                lastInter = i;
+                gCurr = adjacencyMatrix[route[j - 1].id][route[i].id] + route[j - 1].g;
+                gNew = adjacencyMatrix[route[i].id][route[j].id] + gCurr;
+                for(var k = j + 1; k < i; k++)
+                {
+                    gNew += adjacencyMatrix[route[k - 1].id][route[k].id];
+                }
+
+                fNew = this.w * gNew + (1 - this.w) * adjacencyMatrix[route[k - 1].id][route[l - 1].id];
+
+                costArray.push(fNew);
+            }
+
+            costArray.push(currCost);
+
+            var fMin = currCost;
+            minIndex = -1;
+
+            for(j = 0; j < costArray.length; j++)
+            {
+                if(fMin > costArray[j])
+                {
+                    minIndex = j + 1;
+                    fMin = costArray[j];
+                }
+            }
+
+            var temp = route[i];
+
+            if(minIndex != -1)
+            {
+                for(var k = minIndex; k <= i; k++)
+                {
+                    var t = temp;
+                    temp = route[k];
+                    route[k] = t;
+
+                    route[k].g = adjacencyMatrix[route[k - 1].id][route[k].id] + route[k - 1].g;
+                    route[k].h = adjacencyMatrix[route[k].id][route[l - 1].id];
+                    route[k].f = this.w * route[k].g + (1 - this.w) * route[k].h;
+                }
+            }
+
+            if(route[i].g + route[i].h > this.maxCost)
+            {
+                route = routeNew;
+                lastInter = i - 1;
                 break;
             }
+        }
+
+        if(i == l - 1)
+        {
+            lastInter = l - 2;
+        }
+
+        if(start.h > this.maxCost)
+        {
+            lastInter = -1;
         }
 
         if(lastInter == -1)
