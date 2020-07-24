@@ -29,7 +29,7 @@ This is a path finding application that covers **three** path finding and optimi
         g = dist(start -> station node1) + dist(station node1 -> current station node) 
         h = dist(current station node -> End Node)
 ```
-The algorithm then finds the station node with the least F-Score to include in the path which would then be <b><i>Start -> Station Node 1 -> Station Node 2 -> End </i></b>. This is repeated until all eligible station nodes are included in the path such that the total cost of traversal is less than the maximum cost given by the user.   
+The algorithm then finds the station node with the least F-Score to include in the path which would then be <b><i>Start -> Station Node 1 -> Station Node 2 -> End </i></b>. Then, it finds the best position to insert this node in the existing array. For instance, <b><i>Start -> Station Node 1 -> Station Node 2 -> End </i></b> may become <b><i>Start -> Station Node 2 -> Station Node 1 -> End </i></b> if that is shorter. This is repeated until all eligible station nodes are included in the path such that the total cost of traversal is less than the maximum cost given by the user.   
 Note that the objective is not to give the shortest path will all the station nodes included. The nodes will be visited in the order described by the algorithm. One can get an intuition by imagining that the station nodes are included in the increasing order of their distance from the line connecting the Start Node and End Node.
 
 The last two algorithms may be used for the first case too.
